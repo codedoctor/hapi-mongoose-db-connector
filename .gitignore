@@ -1,0 +1,9 @@
+node_modules
+config.json
+tmp
+public/assets
+*.log
+.DS_Store
+*.swp
+*.swo
+keys.txt

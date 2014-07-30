@@ -1,0 +1,4 @@
+--require assert
+--require should
+--globals name,adminApp,skindb,i,len,asset
+--compilers coffee:coffee-script/register
