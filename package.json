@@ -1,6 +1,6 @@
 {
   "name": "hapi-mongoose-db-connector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "lib/index.js",
   "repository": {
@@ -16,8 +16,8 @@
   "description": "HAPI plugin that connects to mongodb",
   "dependencies": {
     "boom": "2.4.2",
-    "hoek": "2.3.0"    
-    },
+    "hoek": "2.3.0"
+  },
   "peerDependencies": {
     "hapi": ">=6.2.1",
     "mongoose": ">=3.8.13"
