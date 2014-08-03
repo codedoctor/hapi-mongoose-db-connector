@@ -11,7 +11,7 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "node_modules/.bin/grunt test"
+    "test": "node_modules/.bin/grunt testandcoverage"
   },
   "description": "HAPI plugin that connects to mongodb",
   "dependencies": {
@@ -23,6 +23,7 @@
     "mongoose": ">=3.8.13"
   },
   "devDependencies": {
+    "blanket": "1.1.6",
     "chai": "1.9.1",
     "codo": "2.0.9",
     "coffee-script": "1.7.1",
@@ -40,6 +41,7 @@
     "grunt-contrib-jshint": "0.10.0",
     "grunt-contrib-watch": "0.6.1",
     "grunt-env": "0.4.1",
+    "grunt-mocha-cov": "0.2.1",
     "grunt-mocha-test": "0.11.0",
     "grunt-open": "0.2.3",
     "grunt-recess": "0.7.0",
@@ -54,5 +56,13 @@
     "shelljs": "0.3.0",
     "should": "4.0.4",
     "underscore": ">=1.6.0"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib"
+      ],
+      "data-cover-never": "node_modules"
+    }
   }
 }
