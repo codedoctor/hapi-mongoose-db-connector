@@ -24,7 +24,7 @@ describe 'WHEN index has been loaded', ->
       myPlugin = server.pack.plugins['hapi-mongoose-db-connector']
       should.exist myPlugin
       myPlugin.should.have.property "mongoose"
-      myPlugin.should.have.property "mongooseStartDb"
-      myPlugin.should.have.property "mongooseStopDb"
+      myPlugin.should.have.property "start"
+      myPlugin.should.have.property "stop"
 
       cb null

@@ -23,11 +23,18 @@ module.exports.register = (plugin, options = {}, cb) ->
         plugin.log ['plugin', 'info'], "Mongoose connected to #{options.mongodbUrl}"
 
   stopDb = ->
-    # @TODO: Implement this correctly.
+    mongoose.disconnect()
   
   startDb()
 
   plugin.expose 'mongoose', mongoose
+
+  plugin.expose 'start',startDb 
+  plugin.expose 'stop',stopDb
+
+  ###
+  Obsolete commands - will be removed eventually
+  ###
   plugin.expose 'mongooseStartDb',startDb 
   plugin.expose 'mongooseStopDb',stopDb
 
