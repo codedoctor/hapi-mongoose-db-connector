@@ -11,7 +11,7 @@ module.exports.register = (plugin, options = {}, cb) ->
 
   options = Hoek.applyToDefaults defaults, options
 
-  Hoek.assert(options.mongodbUrl, 'Missing required mongodbUrl property in fanignite-store configuration');
+  Hoek.assert options.mongodbUrl, 'Missing required mongodbUrl property in options.'
 
 
   startDb = ->
