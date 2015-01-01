@@ -20,7 +20,7 @@
     "underscore": ">=1.6.0"
   },
   "peerDependencies": {
-    "hapi": ">=6.2.1",
+    "hapi": ">=6.2.1 <8",
     "mongoose": ">=3.8.13"
   },
   "devDependencies": {
