@@ -19,9 +19,8 @@ describe 'WHEN index has been loaded', ->
       return cb err if err
 
       should.exist server
-      server.should.have.property "pack"
 
-      myPlugin = server.pack.plugins['hapi-mongoose-db-connector']
+      myPlugin = server.plugins['hapi-mongoose-db-connector']
       should.exist myPlugin
       myPlugin.should.have.property "mongoose"
       myPlugin.should.have.property "start"

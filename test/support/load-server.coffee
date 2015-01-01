@@ -7,13 +7,16 @@ module.exports = loadServer = (cb) ->
     @NOTE This should be taken out of env vars, set in the  grunt file, as an env setting, but hey, we have too much work to do right now.
     ###
 
-    server = new Hapi.Server 5675,"localhost",{}
+    server = new Hapi.Server()
+    server.connection 
+                port: 5675
+                host: "localhost"
 
     pluginConf = [
-        plugin: index
+        register: index
         options: 
           mongodbUrl: "mongodb://localhost/codedoctor-test"
     ]
 
-    server.pack.register pluginConf, (err) ->
+    server.register pluginConf, (err) ->
       cb err,server

@@ -5,7 +5,7 @@ mongoose = require 'mongoose'
 Mixed = mongoose.Schema.Types.Mixed
 ObjectId = mongoose.Schema.Types.ObjectId
 
-module.exports.register = (plugin, options = {}, cb) ->
+module.exports.register = (server, options = {}, cb) ->
   defaults =
     mongodbUrl: null
 
@@ -15,28 +15,28 @@ module.exports.register = (plugin, options = {}, cb) ->
 
 
   startDb = ->
-    plugin.log ['plugin', 'info'], "Mongoose connecting to #{options.mongodbUrl}"
+    server.log ['plugin', 'info'], "Mongoose connecting to #{options.mongodbUrl}"
     mongoose.connect options.mongodbUrl, (err) ->
       if err
-        plugin.log ['plugin', 'error','fatal'], "Mongoose connection failure"
+        server.log ['plugin', 'error','fatal'], "Mongoose connection failure"
       else
-        plugin.log ['plugin', 'info'], "Mongoose connected to #{options.mongodbUrl}"
+        server.log ['plugin', 'info'], "Mongoose connected to #{options.mongodbUrl}"
 
   stopDb = ->
     mongoose.disconnect()
   
   startDb()
 
-  plugin.expose 'mongoose', mongoose
+  server.expose 'mongoose', mongoose
 
-  plugin.expose 'start',startDb 
-  plugin.expose 'stop',stopDb
+  server.expose 'start',startDb 
+  server.expose 'stop',stopDb
 
   ###
   Obsolete commands - will be removed eventually
   ###
-  plugin.expose 'mongooseStartDb',startDb 
-  plugin.expose 'mongooseStopDb',stopDb
+  server.expose 'mongooseStartDb',startDb 
+  server.expose 'mongooseStopDb',stopDb
 
   cb()
 
