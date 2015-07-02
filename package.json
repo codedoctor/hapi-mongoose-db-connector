@@ -1,6 +1,6 @@
 {
   "name": "hapi-mongoose-db-connector",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": false,
   "main": "lib/index.js",
   "license": "MIT",
