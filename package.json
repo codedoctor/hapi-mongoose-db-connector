@@ -1,6 +1,6 @@
 {
   "name": "hapi-mongoose-db-connector",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": false,
   "main": "lib/index.js",
   "license": "MIT",
@@ -8,8 +8,7 @@
     "type": "git",
     "url": "https://github.com/codedoctor/hapi-mongoose-db-connector.git"
   },
-  "engines": {
-  },
+  "engines": {},
   "scripts": {
     "test": "node_modules/.bin/grunt testandcoverage"
   },
