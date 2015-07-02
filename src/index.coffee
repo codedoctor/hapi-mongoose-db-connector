@@ -8,15 +8,15 @@ ObjectId = mongoose.Schema.Types.ObjectId
 module.exports.register = (server, options = {}, cb) ->
   defaults =
     mongodbUrl: null
+    mongoOptions: {}
 
   options = Hoek.applyToDefaults defaults, options
 
   Hoek.assert options.mongodbUrl, 'Missing required mongodbUrl property in options.'
 
-
   startDb = ->
     server.log ['plugin', 'info'], "Mongoose connecting to #{options.mongodbUrl}"
-    mongoose.connect options.mongodbUrl, (err) ->
+    mongoose.connect options.mongodbUrl,options.mongoOptions, (err) ->
       if err
         server.log ['plugin', 'error','fatal'], "Mongoose connection failure"
       else
