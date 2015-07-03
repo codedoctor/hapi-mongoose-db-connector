@@ -15,12 +15,12 @@ module.exports.register = (server, options = {}, cb) ->
   Hoek.assert options.mongodbUrl, 'Missing required mongodbUrl property in options.'
 
   startDb = ->
-    server.log ['plugin', 'info'], "Mongoose connecting to #{options.mongodbUrl}"
+    server.log ['plugin', 'info','hapi-mongoose-db-connector'], "Mongoose connecting to #{options.mongodbUrl}"
     mongoose.connect options.mongodbUrl,options.mongoOptions, (err) ->
       if err
-        server.log ['plugin', 'error','fatal'], "Mongoose connection failure"
+        server.log ['plugin', 'error','fatal','hapi-mongoose-db-connector'], "Mongoose connection failure"
       else
-        server.log ['plugin', 'info'], "Mongoose connected to #{options.mongodbUrl}"
+        server.log ['plugin', 'info','hapi-mongoose-db-connector'], "Mongoose connected to #{options.mongodbUrl}"
 
   stopDb = ->
     mongoose.disconnect()
